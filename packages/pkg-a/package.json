@@ -1,0 +1,24 @@
+{
+    "name": "pkg-a",
+    "version": "0.0.1",
+    "module": "src/index.ts",
+    "type": "module",
+    "exports": {
+        "import": "./src/index.ts"
+    },
+    "scripts": {
+        "clean": "rm -rf dist",
+        "build": "bun run clean && bun build.ts && echo 'Done'.",
+        "bump": "bunx bumpp"
+    },
+    "peerDependencies": {
+        "typescript": "^5.0.0"
+    },
+    "devDependencies": {
+        "@types/bun": "latest"
+    },
+    "dependencies": {
+        "zod": "^3.23.8",
+        "pkg-b": "workspace:*"
+    }
+}
