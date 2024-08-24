@@ -21,7 +21,7 @@ jobs:
               with:
                   context: .
                   push: true
-                  file: ./packages/pkg-a/Dockerfile
+                  file: '{{context}}/packages/pkg-a/Dockerfile'
                   tags: |
                       handlebauer/docker-workspace:latest
                       handlebauer/docker-workspace:${{ github.sha }}
