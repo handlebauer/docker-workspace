@@ -18,18 +18,13 @@ jobs:
               with:
                   username: ${{ secrets.DOCKERHUB_USERNAME }}
                   password: ${{ secrets.DOCKERHUB_TOKEN }}
-            - name: List directory contents
-              run: |
-                  echo "Current directory:"
-                  pwd
-                  echo "Directory contents:"
-                  ls -R
             - name: Build and push
               uses: docker/build-push-action@v6
               with:
                   context: .
                   file: ./packages/pkg-a/Dockerfile
                   push: true
+                  platforms: linux/amd64,linux/arm64
                   tags: |
                       handlebauer/docker-workspace:latest
                       handlebauer/docker-workspace:${{ github.sha }}
