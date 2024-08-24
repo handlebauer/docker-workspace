@@ -19,9 +19,8 @@ jobs:
             - name: Build and push
               uses: docker/build-push-action@v6
               with:
-                  context: .
+                  context: '{{defaultContext}}:packages/pkg-a'
                   push: true
-                  file: '{{context}}/packages/pkg-a/Dockerfile'
                   tags: |
                       handlebauer/docker-workspace:latest
                       handlebauer/docker-workspace:${{ github.sha }}
