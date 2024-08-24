@@ -20,6 +20,7 @@ jobs:
               uses: docker/build-push-action@v6
               with:
                   context: .
+                  file: ./packages/pkg-a/Dockerfile
                   push: true
                   tags: |
                       handlebauer/docker-workspace:latest
